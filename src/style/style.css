@@ -134,7 +134,7 @@ body {
 }
 .header__btn {
   padding: 15px 28px;
-  border-radius: 25px;
+  border-radius: 15px;
   color: var(--white);
   background-color: var(--red);
 }
@@ -235,6 +235,9 @@ body {
 .hero__content {
   width: 100%;
   max-width: 580px;
+}
+.hero__num {
+  color: var(--red);
 }
 .hero__title {
   font-size: calc(30px + 1.3684210526vw);
@@ -575,7 +578,7 @@ body {
 }
 
 .appliaction {
-  padding: 50px 0 100px;
+  padding: 100px 0 100px;
   color: var(--white);
 }
 .appliaction__wrapper {
@@ -659,8 +662,7 @@ body {
   max-width: 410px;
   border-radius: 15px;
   padding: 13px 15px;
-  -moz-text-align-last: left;
-       text-align-last: left;
+  text-align-last: left;
   color: var(--black);
   background-color: var(--white);
 }
@@ -912,3 +914,17 @@ body {
     order: 7;
   }
 }
+.employee {
+  width: 1284px;
+  height: 665px;
+}
+.employee__title {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.3em;
+}
+.employee__title span {
+  color: var(--red);
+}
+
+/*# sourceMappingURL=style.css.map */
