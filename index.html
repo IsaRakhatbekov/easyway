@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -350,19 +350,20 @@
                 <input class="form__inputs" id="email" type="email">
               </div>
 
-              <div class="form-group">
-                <div class="dropdown">
-                  <button class="dropdown__btn">Russian </button>
-                  <ul class="dropdown__list">
-                    <li class="dropdown__items" data-value="belarus">Belarus</li>
-                    <li class="dropdown__items" data-value="kazakhstan">Kazakhstan</li>
-                    <li class="dropdown__items" data-value="kyrgyzstan">Kyrgyzstan</li>
-                    <li class="dropdown__items" data-value="russian">Russian</li>
+              <div class="">
+                <div id="customSelect">
+                  <div class="selectedOption" id="selectedOption"> 🇧🇾 +375 <input id="countryCodeInput" type="text"
+                      placeholder="123123">
+                  </div>
+                  <ul id="optionsList">
+                    <li data-value="+7">🇷🇺</li>
+                    <li data-value="+375">🇧🇾</li>
+                    <li data-value="+7">🇰🇿</li>
+                    <li data-value="+312">🇰🇬</li>
                   </ul>
-                  <input type="text" name="select-category">
                 </div>
+                <!-- <input type="text" id="" placeholder="Код страны" /> -->
               </div>
-
               <button class="form__btn">Отправить заявку</button>
             </form>
           </div>
@@ -371,8 +372,49 @@
     </section>
     <!-- APPLICATION -- ends -->
 
-    <!-- SHIPPING -->
-    <!-- SHIPPING -- ends -->
+    <!-- TYPES -->
+    <section class="types">
+      <div class="types__container container">
+        <ul class="types__wrapper">
+          <li class="types__shipping shipping">
+            <h2 class="shipping__title">
+              Виды доставки
+            </h2>
+            <ul class="shipping__list">
+              <li class="shipping__items">
+                <p class="shipping__text">
+                  Ниже приведены примерные тарифы на доставку. Для точного расчета укажите габариты, вес и характер
+                  груза. Свяжитесь с нами для расчета стоимости и обсуждения индивидуальных цен при крупных заказах.
+                </p>
+                <h3 class="shipping__inner-title">
+                  Авиадоставка
+                </h3>
+              </li>
+              <li class="shipping__items">
+                <p class="shipping__text">
+                  Ниже приведены примерные тарифы на доставку. Для точного расчета укажите габариты, вес и характер
+                  груза. Свяжитесь с нами для расчета стоимости и обсуждения индивидуальных цен при крупных заказах.
+                </p>
+                <h3 class="shipping__inner-title">
+                  Автодоставка
+                </h3>
+              </li>
+              <li class="shipping__items">
+                <p class="shipping__text">
+                  Ниже приведены примерные тарифы на доставку. Для точного расчета укажите габариты, вес и характер
+                  груза. Свяжитесь с нами для расчета стоимости и обсуждения индивидуальных цен при крупных заказах.
+                </p>
+                <h3 class="shipping__inner-title">
+                  ЖД доставка
+                </h3>
+              </li>
+            </ul>
+          </li>
+          <li class="types__package package"></li>
+        </ul>
+      </div>
+    </section>
+    <!-- TYPES -- ends -->
 
   </main>
 
