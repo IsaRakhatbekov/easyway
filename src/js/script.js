@@ -37,6 +37,29 @@ headerMenuBtn.addEventListener('click', () => {
         optionsList.style.display = 'none'
       }
     })
-    
-
 // dropdown in form -- ends
+
+
+// accrodio in section FAQ
+
+const accordionTop = document.querySelectorAll('.accordion__top');
+const accordionContent = document.querySelectorAll('.accordion__content');
+
+accordionTop.forEach(function (accordionTop, index) {
+  accordionTop.addEventListener('click', function () {
+    accordionContent[index].classList.toggle('active');
+    for (let i = 0; i < accordionContent.length; i++) {
+      if (i !== index) {
+        accordionContent[i].classList.remove('active');
+      }
+    }
+    for (let i = 0; i < accordionTop.length; i++) {
+      if (i !== index) {
+        accordionTop[i].classList.remove('active');
+      }
+    }
+  });
+});
+
+
+// accrodio in section FAQ -- ends
