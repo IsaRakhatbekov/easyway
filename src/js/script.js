@@ -9,12 +9,14 @@ headerMenuBtn.addEventListener('click', () => {
     body.classList.toggle('lock')
 })
 // burger menu -- ends
-new Swiper('.swiper', {
+new Swiper(".swiper", {
+    // slidesPerView: 4, // Number of slides per view
+    // slidesPerRow: 2, // Number of slides per column
+    // grid: {
+    //     rows: 1,
+    // },
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-    },
-    slidesPerView: 2, // Number of slides per view
-    slidesPerColumn: 2, // Number of slides per column
-
+    }
 });
