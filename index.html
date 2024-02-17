@@ -2,381 +2,451 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Easyway</title>
-  <link rel="stylesheet" href="./src/style/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easyway</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./src/style/style.css">
 </head>
-
 <body class="body">
-
-  <!-- HEADER -->
-  <header class="header">
+<!-- HEADER -->
+<header class="header">
     <div class="header__container container">
-      <nav class="header__wrapper">
-        <a class="header__logo" href="#">Easy way<span>logistics</span></a>
-        <div class="header__inner">
-          <ul class="header__list">
-            <li class="header__items">
-              <a class="header__links" href="#">
-                Главная
-              </a>
-            </li>
-            <li class="header__items">
-              <a class="header__links" href="#">
-                Услуги
-              </a>
-            </li>
-            <li class="header__items">
-              <a class="header__links" href="#">
-                Доставка
-              </a>
-            </li>
-            <li class="header__items">
-              <a class="header__links" href="#">
-                О нас
-              </a>
-            </li>
-          </ul>
-          <button class="header__btn">
-            Оставить заявку
-          </button>
-          <button class="header__menu-btn"><span></span></button>
-          <div class="header__menu header-menu">
-            <ul class="header-menu__list">
-              <li class="header-menu__items">
-                <a class="header-menu__links" href="#">
-                  Главная
-                </a>
-              </li>
-              <li class="header-menu__items">
-                <a class="header-menu__links" href="#">
-                  Услуги
-                </a>
-              </li>
-              <li class="header-menu__items">
-                <a class="header-menu__links" href="#">
-                  Доставка
-                </a>
-              </li>
-              <li class="header-menu__items">
-                <a class="header-menu__links" href="#">
-                  О нас
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+        <nav class="header__wrapper">
+            <a class="header__logo" href="#">
+                <img src="./src/images/Easyway.svg" alt="#">
+                <img src="./src/images/logistics.svg" alt="#">
+            </a>
+            <div class="header__inner">
+                <ul class="header__list">
+                    <li class="header__items">
+                        <a class="header__links" href="#">
+                            Услуги
+                        </a>
+                    </li>
+                    <li class="header__items">
+                        <a class="header__links" href="#">
+                            Преимущества
+                        </a>
+                    </li>
+                    <li class="header__items">
+                        <a class="header__links" href="#">
+                            Этапы работы
+                        </a>
+                    </li>
+                    <li class="header__items">
+                        <a class="header__links" href="#">
+                            Доставка
+                        </a>
+                    </li>
+                    <li class="header__items">
+                        <a class="header__links" href="#">
+                            О нас
+                        </a>
+                    </li>
+                    <li class="header__items">
+                        <a class="header__links" href="#">
+                            Вопросы
+                        </a>
+                    </li>
+                </ul>
+                <button class="header__btn">
+                    Оставить заявку
+                </button>
+                <button class="header__menu-btn"><span></span></button>
+                <div class="header__menu header-menu">
+                    <ul class="header-menu__list">
+                        <li class="header-menu__items">
+                            <a class="header-menu__links" href="#">
+                                Главная
+                            </a>
+                        </li>
+                        <li class="header-menu__items">
+                            <a class="header-menu__links" href="#">
+                                Услуги
+                            </a>
+                        </li>
+                        <li class="header-menu__items">
+                            <a class="header-menu__links" href="#">
+                                Доставка
+                            </a>
+                        </li>
+                        <li class="header-menu__items">
+                            <a class="header-menu__links" href="#">
+                                О нас
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
-  </header>
-  <!-- HEADER -- ends -->
+</header>
+<!-- HEADER -- ends -->
 
 
-  <main class="main" id="main">
+<main class="main" id="main">
 
     <!-- HERO -->
     <section class="hero">
-      <div class="hero__container container">
-        <div class="hero__wrapper">
-          <div class="hero__content">
-            <h1 class="hero__title">
-              <span>Доставка</span> товара из Китая в <span>РФ</span> и страны <span>СНГ</span>
-            </h1>
-            <p class="hero__subtitle">
-              Найдем, выкупим, привезём!
-            </p>
-            <ul class="hero__list">
-              <li class="hero__items">
+        <div class="hero__container container">
+            <div class="hero__wrapper">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        <span>Доставка</span> товара из Китая в <span>РФ</span> и страны <span>СНГ</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Найдем, выкупим, привезём!
+                    </p>
+                    <ul class="hero__list">
+                        <li class="hero__items">
                 <span class="hero__num">
                   5+
                 </span>
-                <span class="hero__desc">
+                            <span class="hero__desc">
                   лет на рынке
                 </span>
-              </li>
-              <li class="hero__items">
+                        </li>
+                        <li class="hero__items">
                 <span class="hero__num">
                   30+
                 </span>
-                <span class="hero__desc">
+                            <span class="hero__desc">
                   тонн товара отправляем в месяц
                 </span>
-              </li>
-              <li class="hero__items">
+                        </li>
+                        <li class="hero__items">
                 <span class="hero__num">
                   90%
                 </span>
-                <span class="hero__desc">
+                            <span class="hero__desc">
                   груза прибывают раньше срока
                 </span>
-              </li>
-            </ul>
-          </div>
-          <div class="hero__bg">
-            <!-- <img class="hero__bg-img" src="./src/images/map.png" alt=""> -->
-          </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hero__bg">
+                    <!-- <img class="hero__bg-img" src="./src/images/map.png" alt=""> -->
+                </div>
+            </div>
         </div>
-      </div>
     </section>
     <!-- HERO -- ends -->
 
     <!-- SERVICES -->
     <section class="services">
-      <div class="services__container container">
-        <h1 class="services__title def-title">
-          Наши <span>услуги</span>
-        </h1>
-        <ul class="services__list">
-          <li class="services__items">
-            <h3 class="services__items-title">
-              Поиск товара
-            </h3>
-            <p class="services__text">
-              Мы поможем вам найти нужный товар, уточним все детали у поставщика и договоримся о цене
-            </p>
-          </li>
-          <li class="services__items">
-            <h3 class="services__items-title">
-              Проверка
-            </h3>
-            <p class="services__text">
-              После прибытия вашего груза на наш склад, наши сотрудники проверят товар на соответствие цвета, наличие
-              брака и сделают
-              фотоотчет
-            </p>
-          </li>
-          <li class="services__items">
-            <h3 class="services__items-title">
-              Выкуп
-            </h3>
-            <p class="services__text">
-              Мы можем работать напрямую с производителями или с интернет-магазинами, такими как Taobao.com, 1688.com,
-              Poizon и
-              другими интернет-площадками
-            </p>
-          </li>
-          <li class="services__items">
-            <h3 class="services__items-title">
-              Логистика
-            </h3>
-            <p class="services__text">
-              Мы упакуем и отправим ваш груз удобным для вас видом транспорта в любой город России, Казахстана,
-              Кыргызстана и других
-              стран СНГ
-            </p>
-          </li>
-          <li class="services__items">
-            <h3 class="services__items-title">
-              Инспекция
-            </h3>
-            <p class="services__text">
-              Мы можем отправить своего специалиста на первичную проверку фабрики, чтобы убедиться, что она существует,
-              работает и
-              обладает всеми необходимыми возможностями для производства вашего товара
-            </p>
-          </li>
-        </ul>
-      </div>
+        <div class="services__container container">
+            <h1 class="services__title def-title">
+                Наши <span>услуги</span>
+            </h1>
+            <ul class="services__list">
+                <li class="services__items">
+                    <h3 class="services__items-title">
+                        Поиск товара
+                    </h3>
+                    <p class="services__text">
+                        Мы поможем вам найти нужный товар, уточним все детали у поставщика и договоримся о цене
+                    </p>
+                </li>
+                <li class="services__items">
+                    <h3 class="services__items-title">
+                        Проверка
+                    </h3>
+                    <p class="services__text">
+                        После прибытия вашего груза на наш склад, наши сотрудники проверят товар на соответствие цвета,
+                        наличие
+                        брака и сделают
+                        фотоотчет
+                    </p>
+                </li>
+                <li class="services__items">
+                    <h3 class="services__items-title">
+                        Выкуп
+                    </h3>
+                    <p class="services__text">
+                        Мы можем работать напрямую с производителями или с интернет-магазинами, такими как Taobao.com,
+                        1688.com,
+                        Poizon и
+                        другими интернет-площадками
+                    </p>
+                </li>
+                <li class="services__items">
+                    <h3 class="services__items-title">
+                        Логистика
+                    </h3>
+                    <p class="services__text">
+                        Мы упакуем и отправим ваш груз удобным для вас видом транспорта в любой город России,
+                        Казахстана,
+                        Кыргызстана и других
+                        стран СНГ
+                    </p>
+                </li>
+                <li class="services__items">
+                    <h3 class="services__items-title">
+                        Инспекция
+                    </h3>
+                    <p class="services__text">
+                        Мы можем отправить своего специалиста на первичную проверку фабрики, чтобы убедиться, что она
+                        существует,
+                        работает и
+                        обладает всеми необходимыми возможностями для производства вашего товара
+                    </p>
+                </li>
+            </ul>
+        </div>
     </section>
     <!-- SERVICES -- ends -->
 
     <!-- ADVANTAGES -->
     <section class="advantages">
-      <div class="advantages__container container">
-        <h2 class="advantages__title def-title">
-          Наши <span>преимущества</span>
-        </h2>
-        <ul class="advantages__list">
-          <li class="advantages__items">
-            <span class="advantages__numbers">01</span>
-            <p class="advantages__text">
-              Свой склад в двух городах Китая: Гуанчжоу и Иу
-            </p>
-          </li>
-          <li class="advantages__items">
-            <span class="advantages__numbers">02</span>
-            <p class="advantages__text">
-              Мы принимаем заказы от 8 кг и без ограничений
-            </p>
-          </li>
-          <li class="advantages__items">
-            <span class="advantages__numbers">03</span>
-            <p class="advantages__text">
-              Менеджера всегда доступны для ваших вопросов и сопровождают вас от поиска до получения товара
-            </p>
-          </li>
-          <li class="advantages__items">
-            <span class="advantages__numbers">04</span>
-            <p class="advantages__text">
-              Наш персонал - русскоязычные профессионалы, владеющие китайским языком для удобства общения с заказчиками
-            </p>
-          </li>
-          <li class="advantages__items">
-            <span class="advantages__numbers">05</span>
-            <p class="advantages__text">
-              Мы активно поддерживаем клиентов в трудных ситуациях, включая послепродажное обслуживание
-            </p>
-          </li>
-        </ul>
-      </div>
+        <div class="advantages__container container">
+            <h2 class="advantages__title def-title">
+                Наши <span>преимущества</span>
+            </h2>
+            <ul class="advantages__list">
+                <li class="advantages__items">
+                    <span class="advantages__numbers">01</span>
+                    <p class="advantages__text">
+                        Свой склад в двух городах Китая: Гуанчжоу и Иу
+                    </p>
+                </li>
+                <li class="advantages__items">
+                    <span class="advantages__numbers">02</span>
+                    <p class="advantages__text">
+                        Мы принимаем заказы от 8 кг и без ограничений
+                    </p>
+                </li>
+                <li class="advantages__items">
+                    <span class="advantages__numbers">03</span>
+                    <p class="advantages__text">
+                        Менеджера всегда доступны для ваших вопросов и сопровождают вас от поиска до получения товара
+                    </p>
+                </li>
+                <li class="advantages__items">
+                    <span class="advantages__numbers">04</span>
+                    <p class="advantages__text">
+                        Наш персонал - русскоязычные профессионалы, владеющие китайским языком для удобства общения с
+                        заказчиками
+                    </p>
+                </li>
+                <li class="advantages__items">
+                    <span class="advantages__numbers">05</span>
+                    <p class="advantages__text">
+                        Мы активно поддерживаем клиентов в трудных ситуациях, включая послепродажное обслуживание
+                    </p>
+                </li>
+            </ul>
+        </div>
     </section>
     <!-- ADVANTAGES -- ends -->
 
-    <!-- PROCESS -->
-    <section class="process">
-      <div class="process__container container">
-        <h2 class="process__title def-title">
-          Как мы <span>работаем?</span>
-        </h2>
-        <ul class="process__list">
-          <li class="process__items">
-            <div>
-              <span class="process__numbers">1</span>
-            </div>
-            <div class="process__inner">
-              <h3 class="process__items-title">Связь</h3>
-              <p class="process__text">
-                Напишите в наши мессенджеры, мы расскажем условия, найдем нужный товар, рассчитаем доставку и поможем с
-                заполнением
-                заказа
-              </p>
-            </div>
-          </li>
-          <li class="process__items">
-            <div>
-              <span class="process__numbers">3</span>
-            </div>
-            <div class="process__inner">
-              <h3 class="process__items-title">Оплата</h3>
-              <p class="process__text">
-                Мы принимаем оплату любым удобным для вас способом: переводом и наличными в разной валюте. Также мы
-                принимаем юани на
-                китайскую карту или через AliPay
-              </p>
-            </div>
-          </li>
-          <li class="process__items">
-            <div>
-              <span class="process__numbers">2</span>
-            </div>
-            <div class="process__inner">
-              <h3 class="process__items-title">Расчет</h3>
-              <p class="process__text">
-                После подготовки бланка, рассчитаем сумму товара с нашей комиссией (3-8%) по текущему курсу валюты,
-                запросим скидку и
-                уточним детали перед оплатой
-              </p>
-            </div>
-          </li>
-          <li class="process__items">
-            <div>
-              <span class="process__numbers">4</span>
-            </div>
-            <div class="process__inner">
-              <h3 class="process__items-title">Выкуп</h3>
-              <p class="process__text">
-                После оплаты, мы передаем файл на выкуп нашим менеджерам. Выкуп происходит в день оплаты или на
-                следующий день
-              </p>
-            </div>
-          </li>
-          <li class="process__items">
-            <div>
-              <span class="process__numbers">5</span>
-            </div>
-            <div class="process__inner">
-              <h3 class="process__items-title">Прием и проверка</h3>
-              <p class="process__text">
-                После покупки товара мы ожидаем его поступления на склад, затем осуществляем проверку на количество,
-                брак и общее
-                состояние, после чего отправляем вам подробный фотоотчет
-              </p>
-            </div>
-          </li>
-          <li class="process__items">
-            <div>
-              <span class="process__numbers">6</span>
-            </div>
-            <div class="process__inner">
-              <h3 class="process__items-title">Упаковка и отправка</h3>
-              <p class="process__text">
-                После проверки, мы уточним всю информацию о доставке, упаковке товара, страховке и данных клиента
-              </p>
-            </div>
-          </li>
-          <li class="process__items">
-            <div>
-              <span class="process__numbers">7</span>
-            </div>
-            <div class="process__inner">
-              <h3 class="process__items-title">Доставка</h3>
-              <p class="process__text">
-                После отправки, мы вышлем вам накладную с информацией о товаре и сумму за доставку до указанного города.
-                Также, вы
-                можете самостоятельно выкупить товар на нашем складе.
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-    <!-- PROCESS -- ends -->
 
     <!-- APPLICATION  -->
     <section class="appliaction">
-      <div class="appliaction__container container">
-        <div class="appliaction__wrapper">
-          <ul class="appliaction__images">
-            <li class="appliaction__img-wrapper">
-              <img class="appliaction__img" src="./src/images/application-image.png" alt="">
-            </li>
-          </ul>
-          <div class="appliaction__content">
-            <h2 class="appliaction__title def-title">
-              Оставьте <span>заявку</span> и получите <span>бесплатную</span> консультацию
-            </h2>
-            <p class="appliaction__subtitle">
-              Наши менеджера с вами свяжутся
-            </p>
-            <form class="appliaction__form form">
+        <div class="appliaction__container container">
+            <div class="appliaction__wrapper">
+                <ul class="appliaction__images">
+                    <li class="appliaction__img-wrapper">
+                        <img class="appliaction__img" src="./src/images/application-image.png" alt="">
+                    </li>
+                </ul>
+                <div class="appliaction__content">
+                    <h2 class="appliaction__title def-title">
+                        Оставьте <span>заявку</span> и получите <span>бесплатную</span> консультацию
+                    </h2>
+                    <p class="appliaction__subtitle">
+                        Наши менеджера с вами свяжутся
+                    </p>
+                    <form class="appliaction__form form">
 
-              <div class="form__inputs-wrapper">
-                <label class="form__label" for="name">Имя*</label>
-                <input class="form__inputs" id="name" type="text">
-              </div>
-              <div class="form__inputs-wrapper">
-                <label class="form__label" for="email">Почта</label>
-                <input class="form__inputs" id="email" type="email">
-              </div>
+                        <div class="form__inputs-wrapper">
+                            <label class="form__label" for="name">Имя*</label>
+                            <input class="form__inputs" id="name" type="text">
+                        </div>
+                        <div class="form__inputs-wrapper">
+                            <label class="form__label" for="email">Почта</label>
+                            <input class="form__inputs" id="email" type="email">
+                        </div>
 
-              <div class="form-group">
-                <div class="dropdown">
-                  <button class="dropdown__btn">Russian </button>
-                  <ul class="dropdown__list">
-                    <li class="dropdown__items" data-value="belarus">Belarus</li>
-                    <li class="dropdown__items" data-value="kazakhstan">Kazakhstan</li>
-                    <li class="dropdown__items" data-value="kyrgyzstan">Kyrgyzstan</li>
-                    <li class="dropdown__items" data-value="russian">Russian</li>
-                  </ul>
-                  <input type="text" name="select-category">
+                        <div class="form-group">
+                            <div class="dropdown">
+                                <button class="dropdown__btn">Russian</button>
+                                <ul class="dropdown__list">
+                                    <li class="dropdown__items" data-value="belarus">Belarus</li>
+                                    <li class="dropdown__items" data-value="kazakhstan">Kazakhstan</li>
+                                    <li class="dropdown__items" data-value="kyrgyzstan">Kyrgyzstan</li>
+                                    <li class="dropdown__items" data-value="russian">Russian</li>
+                                </ul>
+                                <input type="text" name="select-category">
+                            </div>
+                        </div>
+
+                        <button class="form__btn">Отправить заявку</button>
+                    </form>
                 </div>
-              </div>
-
-              <button class="form__btn">Отправить заявку</button>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </section>
     <!-- APPLICATION -- ends -->
 
+    <!-- PROCESS -- starts -->
+    <section class="process">
+        <div class="process__container container">
+            <h2 class="process__title def-title">
+                Как мы <span>работаем?</span>
+            </h2>
+            <ul class="process__list">
+                <li class="process__items">
+                    <div>
+                        <span class="process__numbers">1</span>
+                    </div>
+                    <div class="process__inner">
+                        <h3 class="process__items-title">Связь</h3>
+                        <p class="process__text">
+                            Напишите в наши мессенджеры, мы расскажем условия, найдем нужный товар, рассчитаем доставку
+                            и поможем с
+                            заполнением
+                            заказа
+                        </p>
+                    </div>
+                </li>
+                <li class="process__items">
+                    <div>
+                        <span class="process__numbers">3</span>
+                    </div>
+                    <div class="process__inner">
+                        <h3 class="process__items-title">Оплата</h3>
+                        <p class="process__text">
+                            Мы принимаем оплату любым удобным для вас способом: переводом и наличными в разной валюте.
+                            Также мы
+                            принимаем юани на
+                            китайскую карту или через AliPay
+                        </p>
+                    </div>
+                </li>
+                <li class="process__items">
+                    <div>
+                        <span class="process__numbers">2</span>
+                    </div>
+                    <div class="process__inner">
+                        <h3 class="process__items-title">Расчет</h3>
+                        <p class="process__text">
+                            После подготовки бланка, рассчитаем сумму товара с нашей комиссией (3-8%) по текущему курсу
+                            валюты,
+                            запросим скидку и
+                            уточним детали перед оплатой
+                        </p>
+                    </div>
+                </li>
+                <li class="process__items">
+                    <div>
+                        <span class="process__numbers">4</span>
+                    </div>
+                    <div class="process__inner">
+                        <h3 class="process__items-title">Выкуп</h3>
+                        <p class="process__text">
+                            После оплаты, мы передаем файл на выкуп нашим менеджерам. Выкуп происходит в день оплаты или
+                            на
+                            следующий день
+                        </p>
+                    </div>
+                </li>
+                <li class="process__items">
+                    <div>
+                        <span class="process__numbers">5</span>
+                    </div>
+                    <div class="process__inner">
+                        <h3 class="process__items-title">Прием и проверка</h3>
+                        <p class="process__text">
+                            После покупки товара мы ожидаем его поступления на склад, затем осуществляем проверку на
+                            количество,
+                            брак и общее
+                            состояние, после чего отправляем вам подробный фотоотчет
+                        </p>
+                    </div>
+                </li>
+                <li class="process__items">
+                    <div>
+                        <span class="process__numbers">6</span>
+                    </div>
+                    <div class="process__inner">
+                        <h3 class="process__items-title">Упаковка и отправка</h3>
+                        <p class="process__text">
+                            После проверки, мы уточним всю информацию о доставке, упаковке товара, страховке и данных
+                            клиента
+                        </p>
+                    </div>
+                </li>
+                <li class="process__items">
+                    <div>
+                        <span class="process__numbers">7</span>
+                    </div>
+                    <div class="process__inner">
+                        <h3 class="process__items-title">Доставка</h3>
+                        <p class="process__text">
+                            После отправки, мы вышлем вам накладную с информацией о товаре и сумму за доставку до
+                            указанного города.
+                            Также, вы
+                            можете самостоятельно выкупить товар на нашем складе.
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- PROCESS -- ends -->
+
     <!-- SHIPPING -->
     <!-- SHIPPING -- ends -->
+    <!--    EMPLOYEE-->
+    <section class="employee">
+        <div class="employee__container container">
+            <h2 class="employee__title">Наши <span>сотрудники</span></h2>
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="photo-wrapper">
+                            <div class="photo-img"><img src="./src/images/Card_1.png" alt="employee"></div>
+                            <div class="photo-img"><img src="./src/images/Card_2.png" alt="employee"></div>
+                            <div class="photo-img"><img src="./src/images/Card_3.png" alt="employee"></div>
+                            <div class="photo-img"><img src="./src/images/Card_4.png" alt="employee"></div>
+                        </div>
+                        <div>
+                            <h1>Наша команда - это сердце нашей логистической компании</h1>
+                            <p>Мы гордимся тем, что у нас работают высококвалифицированные профессионалы, которые
+                                преданы своему делу и стремятся обеспечить лучший сервис для наших клиентов</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="photo-wrapper">
+                            <div class="photo-img"><img src="./src/images/Card_1.png" alt="employee"></div>
+                            <div class="photo-img"><img src="./src/images/Card_2.png" alt="employee"></div>
+                            <div class="photo-img"><img src="./src/images/Card_3.png" alt="employee"></div>
+                            <div class="photo-img"><img src="./src/images/Card_4.png" alt="employee"></div>
+                        </div>
+                        <div>
+                            <h1>Наша команда - это сердце нашей логистической компании</h1>
+                            <p>Мы гордимся тем, что у нас работают высококвалифицированные профессионалы, которые
+                                преданы своему делу и стремятся обеспечить лучший сервис для наших клиентов</p>
+                        </div>
+                    </div>
 
-  </main>
-
-  <script src="./src/js/script.js"></script>
+                </div>
+                <!-- Add navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+    <!--EMPLOYEE END-->
+</main>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="./src/js/script.js"></script>
 </body>
 
 </html>
