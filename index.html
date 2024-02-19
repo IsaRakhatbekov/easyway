@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Easyway</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./src/style/style.css">
 </head>
 
@@ -40,7 +41,7 @@
               </a>
             </li>
             <li class="header__items">
-              <a class="header__links" href="#">
+              <a class="header__links" href="#employee">
                 О нас
               </a>
             </li>
@@ -79,7 +80,7 @@
                 </a>
               </li>
               <li class="header-menu__items">
-                <a class="header-menu__links" href="#">
+                <a class="header-menu__links" href="#employee">
                   О нас
                 </a>
               </li>
@@ -316,29 +317,33 @@
 
               <div class="form__inputs-wrapper">
                 <label class="form__label" for="name">Имя*</label>
-                <input class="form__inputs" id="name" type="text">
-              </div>
-              <div class="form__inputs-wrapper">
-                <label class="form__label" for="email">Почта</label>
-                <input class="form__inputs" id="email" type="email">
+                <input class="form__inputs name-input" type="text">
+                <!-- <button class="form__btn-reset reset-btn" type="button"></button> -->
               </div>
 
-              <div class="">
-                <div id="customSelect">
-                  <div class="selectedOption" id="selectedOption"> 🇧🇾 +375 <input id="countryCodeInput" type="text"
-                      placeholder="123123">
-                  </div>
-                  <ul id="optionsList">
-                    <li data-value="+7">🇷🇺</li>
-                    <li data-value="+375">🇧🇾</li>
-                    <li data-value="+7">🇰🇿</li>
-                    <li data-value="+312">🇰🇬</li>
-                  </ul>
+              <div class="form__inputs-wrapper">
+                <label class="form__label" for="email">Почта</label>
+                <input class="form__inputs email-input" type="email">
+                <!-- <button class="form__btn-reset reset-btn" type="button"></button> -->
+              </div>
+
+              <div class="custom-select">
+                <label class="form__label" for="phone">Номер телефона *</label>
+                <input class="custom-select__input" id="phone" type="text" placeholder="🇷🇺 +7(___) ___ - __-__">
+                <div class="custom-select__wrapper">
+                  <span class="custom-select__options">🇷🇺<span class="custom-select__span">+7(___)
+                      ___-__-__</span></span>
+                  <span class="custom-select__options">🇧🇾<span class="custom-select__span">+375(__)
+                      ___-__-__</span></span>
+                  <span class="custom-select__options">🇰🇿<span class="custom-select__span">+7(___)
+                      ___-__-__</span></span>
+                  <span class="custom-select__options">🇰🇬<span class="custom-select__span">+996(___)
+                      ___-___</span></span>
                 </div>
-                <input type="text" id="" placeholder="Код страны" />
               </div>
               <button class="form__btn">Отправить заявку</button>
             </form>
+
           </div>
         </div>
       </div>
@@ -624,6 +629,110 @@
     </section>
     <!-- TYPES -- ends -->
 
+
+    <!-- EMPLOYEE -->
+    <section class="employee" id="employee">
+      <div class="employee__container container">
+        <h2 class="employee__title def-title">
+          Наши <span>сотрудники</span>
+        </h2>
+        <div class="employee__wrapper">
+          <div class="employee__swiper">
+            <div class="swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="employee__blocks">
+                    <img class="employee__img" src="./src/images/employee-1.png" alt="">
+                    <div class="employee__text-wrapper">
+                      <h4 class="employee__name">Исмаилов Абдулазиз</h4>
+                      <span class="employee__post">Курьер</span>
+                    </div>
+                  </div>
+                  <div class="employee__blocks">
+                    <img class="employee__img" src="./src/images/employee-2.png" alt="">
+                    <div class="employee__text-wrapper">
+                      <h4 class="employee__name">Радищева Владислава</h4>
+                      <span class="employee__post">Менеджер</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="employee__blocks">
+                    <img class="employee__img" src="./src/images/employee-2.png" alt="">
+                    <div class="employee__text-wrapper">
+                      <h4 class="employee__name">Жамгырчиева Бубусара</h4>
+                      <span class="employee__post">Консультант</span>
+                    </div>
+                  </div>
+                  <div class="employee__blocks">
+                    <img class="employee__img" src="./src/images/employee-1.png" alt="">
+                    <div class="employee__text-wrapper">
+                      <h4 class="employee__name">Русачев Михаил</h4>
+                      <span class="employee__post">Менеджер</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="employee__blocks">
+                    <img class="employee__img" src="./src/images/employee-1.png" alt="">
+                    <div class="employee__text-wrapper">
+                      <h4 class="employee__name">Name Name Name</h4>
+                      <span class="employee__post">post</span>
+                    </div>
+                  </div>
+                  <div class="employee__blocks">
+                    <img class="employee__img" src="./src/images/employee-2.png" alt="">
+                    <div class="employee__text-wrapper">
+                      <h4 class="employee__name">Name Name Name</h4>
+                      <span class="employee__post">post</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="employee__blocks">
+                    <img class="employee__img" src="./src/images/employee-2.png" alt="">
+                    <div class="employee__text-wrapper">
+                      <h4 class="employee__name">Name Name Name</h4>
+                      <span class="employee__post">post</span>
+                    </div>
+                  </div>
+                  <div class="employee__blocks">
+                    <img class="employee__img" src="./src/images/employee-1.png" alt="">
+                    <div class="employee__text-wrapper">
+                      <h4 class="employee__name">Name Name Name</h4>
+                      <span class="employee__post">post</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-prev">
+              <svg width="45" height="21" viewBox="0 0 45 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M45 10.5H2M2 10.5L13.5 1M2 10.5L13.5 20" stroke="#D0D0D0" stroke-width="2" />
+              </svg>
+            </div>
+            <div class="swiper-button-next">
+              <svg width="45" height="21" viewBox="0 0 45 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M45 10.5H2M2 10.5L13.5 1M2 10.5L13.5 20" stroke="#D0D0D0" stroke-width="2" />
+              </svg>
+            </div>
+          </div>
+          <div class="employee__content">
+            <h3 class="employee__inner-title">
+              Наша команда - это сердце нашей логистической компании
+            </h3>
+            <p class="employee__text">
+              Мы гордимся тем, что у нас работают высококвалифицированные профессионалы, которые преданы своему делу и
+              стремятся
+              обеспечить лучший сервис для наших клиентов
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- EMPLOYEE -- ends -->
+
+
     <!-- FAQ -->
     <section class="faq" id="faq">
       <div class="faq__container container">
@@ -778,7 +887,7 @@
             </a>
           </li>
           <li class="footer__items">
-            <a class="footer__links" href="#">
+            <a class="footer__links" href="#employee">
               О нас
             </a>
           </li>
@@ -840,8 +949,12 @@
         </div>
       </div>
     </div>
+    <span class="footer__copy">Создано:
+      <img src="./src/images/meta-logo.svg" alt="">
+    </span>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="./src/js/script.js"></script>
 </body>
 

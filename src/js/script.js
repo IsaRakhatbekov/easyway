@@ -1,65 +1,154 @@
-// burger menu
-const body = document.querySelector("body")
-const headerMenu = document.querySelector(".header-menu")
-const headerMenuBtn = document.querySelector(".header__menu-btn")
+// burger menu ------------------------------------------------------------------------
+const body = document.querySelector("body");
+const headerMenu = document.querySelector(".header-menu");
+const headerMenuBtn = document.querySelector(".header__menu-btn");
+const mobileMenuLinks = document.querySelectorAll(".header-menu__links");
 
 headerMenuBtn.addEventListener('click', () => {
-  headerMenuBtn.classList.toggle('active')
-  headerMenu.classList.toggle('active')
-  body.classList.toggle('lock')
-})
-// burger menu -- ends
+  headerMenuBtn.classList.toggle('active');
+  headerMenu.classList.toggle('active');
+  body.classList.toggle('lock');
+});
+
+mobileMenuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    headerMenuBtn.classList.remove('active');
+    headerMenu.classList.remove('active');
+    body.classList.remove('lock');
+  });
+});
+// burger menu -- ends ------------------------------------------------------------
 
 
 
-// dropdown in form
-    const customSelect = document.getElementById('customSelect')
-    const selectedOption = document.getElementById('selectedOption')
-    const optionsList = document.getElementById('optionsList')
-    const countryCodeInput = document.getElementById('countryCodeInput')
-
-    let isOpen = false
-    selectedOption.addEventListener('click', function () {
-      isOpen = !isOpen
-      if (isOpen) {
-        optionsList.style.display = 'block'
-      } else {
-        optionsList.style.display = 'none'
-      }
-    })
-
-    optionsList.addEventListener('click', function (event) {
-      if (event.target.tagName === 'LI') {
-        const selectedValue = event.target.getAttribute('data-value')
-        selectedOption.textContent = event.target.textContent
-        countryCodeInput.placeholder = `Код страны(${selectedValue})`;
-        isOpen = false
-        optionsList.style.display = 'none'
-      }
-    })
-// dropdown in form -- ends
 
 
-// accrodio in section FAQ
+// dropdown in form ------------------------------------------------------------------------------------------------
+const customSelectInput = document.querySelector('.custom-select__input');
+const customSelectWrapper = document.querySelector('.custom-select__wrapper');
+const customSelectOptions = document.querySelectorAll('.custom-select__options');
+const customSelectSpan = document.querySelectorAll('.custom-select__span');
 
-const accordionTop = document.querySelectorAll('.accordion__top');
-const accordionContent = document.querySelectorAll('.accordion__content');
+customSelectInput.addEventListener('click', () => {
+  customSelectInput.classList.toggle('active');
+  customSelectWrapper.classList.toggle('active');
+});
 
-accordionTop.forEach(function (accordionTop, index) {
+customSelectOptions.forEach((option, index) => {
+  option.addEventListener('click', (event) => {
+    customSelectInput.classList.remove('active');
+    customSelectWrapper.classList.remove('active');
+
+    // Получаем текст выбранного элемента из custom-select__options
+    const innerTextOption = event.target.innerText;
+
+    // Получаем текст соответствующего элемента из custom-select__span и удаляем пробелы
+    const innerTextSpan = customSelectSpan[index].innerText.replace(/\s/g, '');
+
+    // Соединяем тексты и устанавливаем в custom-select__input
+    const combinedText = `${innerTextOption} ${innerTextSpan}`;
+    customSelectInput.placeholder = combinedText;
+  });
+});
+// THIS IS FOR RESET INPUTS VALUE
+//  document.addEventListener('DOMContentLoaded', function () {
+//     const resetButtons = document.querySelectorAll('.reset-btn');
+    
+//     resetButtons.forEach(function (button) {
+//       button.addEventListener('click', function () {
+//         const input = this.parentNode.querySelector('input');
+//         input.value = ''; // Сбрасываем значение инпута
+//       });
+//     });
+//   });
+// dropdown in form -- ends ------------------------------------------------------------------------------------------------------
+
+
+
+
+
+// accrodion in section FAQ ------------------------------------------------
+
+// const accordionTop = document.querySelectorAll('.accordion__top');
+// const accordionContent = document.querySelectorAll('.accordion__content');
+
+// accordionTop.forEach(function (accordionTop, index) {
+//   accordionTop.addEventListener('click', function () {
+//     accordionContent[index].classList.toggle('active');
+//     for (let i = 0; i < accordionContent.length; i++) {
+//       if (i !== index) {
+//         accordionContent[i].classList.remove('active');
+//       }
+//     }
+//     for (let i = 0; i < accordionTop.length; i++) {
+//       if (i !== index) {
+//         accordionTop[i].classList.remove('active');
+//       }
+//     }
+//   });
+// });
+
+
+
+const accordionTops = document.querySelectorAll('.accordion__top');
+const accordionContents = document.querySelectorAll('.accordion__content');
+
+accordionTops.forEach(function (accordionTop, index) {
   accordionTop.addEventListener('click', function () {
-    accordionContent[index].classList.toggle('active');
-    for (let i = 0; i < accordionContent.length; i++) {
-      if (i !== index) {
-        accordionContent[i].classList.remove('active');
-      }
-    }
-    for (let i = 0; i < accordionTop.length; i++) {
-      if (i !== index) {
-        accordionTop[i].classList.remove('active');
-      }
+    const isActive = accordionContents[index].classList.contains('active');
+
+    accordionContents.forEach(content => content.classList.remove('active'));
+    accordionTops.forEach(top => top.classList.remove('active'));
+
+    if (!isActive) {
+      accordionContents[index].classList.add('active');
+      accordionTop.classList.add('active');
     }
   });
 });
 
 
-// accrodio in section FAQ -- ends
+
+
+
+
+
+
+
+// accrodio in section FAQ -- ends------------------------------------------
+
+
+
+// SWIPER ------------------------------
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  slidesPerView: 2,
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+const swiperBtnPrev = document.querySelector('.swiper-button-prev')
+const swiperBtnNext = document.querySelector('.swiper-button-next')
+
+swiperBtnPrev.addEventListener('click', () => {
+    swiperBtnPrev.classList.add('active')
+    swiperBtnNext.classList.remove('active')
+})
+swiperBtnNext.addEventListener('click', () => {
+    swiperBtnNext.classList.add('active')
+    swiperBtnPrev.classList.remove('active')
+})
+
+// SWIPER -- ends ---------------------

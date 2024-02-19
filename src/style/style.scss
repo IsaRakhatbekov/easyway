@@ -226,13 +226,17 @@ body {
     position: absolute;
     padding: 20px;
     left: 0;
-    top: 75px;
+    top: 65px;
     width: 100%;
     height: calc(100vh - 76px);
     transform: translateX(2000%);
     background-color: var(--white);
     overflow: auto;
     transition: all .5s ease-in-out;
+
+    @media (max-width: 369px) {
+      top: 75px;
+    }
 
     &.active {
       transform: translateX(0);
@@ -485,6 +489,11 @@ body {
 .advantages {
   padding: 100px 0;
 
+  &__title {
+    position: relative;
+    z-index: 5;
+  }
+
   &__list {
     position: relative;
     gap: 25px;
@@ -499,8 +508,23 @@ body {
       max-width: 600px;
       height: 700px;
       top: -320px;
-      left: 0;
+      left: 47px;
       background: url("../images/countainer.png") no-repeat center/contain;
+      animation: swing 2s infinite alternate ease;
+      transform-origin: top center;
+    }
+
+    @keyframes swing {
+
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      50% {
+        transform: rotate(5deg);
+        /* Можете настроить угол раскачивания */
+      }
     }
   }
 
@@ -789,6 +813,7 @@ body {
   .form {
 
     &__inputs-wrapper {
+      position: relative;
       gap: 5px;
       display: flex;
       flex-direction: column;
@@ -813,6 +838,15 @@ body {
       }
     }
 
+    // &__btn-reset {
+    //   position: absolute;
+    //   width: 18px;
+    //   height: 18px;
+    //   top: 38px;
+    //   right: 12px;
+    //   background: url("../images/reset.svg") no-repeat center/cover;
+    // }
+
     &__btn {
       width: 100%;
       max-width: 410px;
@@ -834,62 +868,78 @@ body {
       }
     }
 
+    .custom-select {
+      position: relative;
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
 
-    .selectedOption {
-      & input {
+      &__input {
+        cursor: pointer;
+        font-size: 18px;
+        padding: 8px 15px;
+        width: 100%;
+        max-width: 410px;
+        border-radius: 15px;
+        background-color: var(--white);
         outline: none;
+        transition: all .3s;
 
-        &::placeholder {
-          color: var(--black);
+        &.active {
+          border-radius: 15px 15px 15px 0;
+        }
+      }
+
+      &__wrapper {
+        position: relative;
+        transition: all .3s;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        height: 0;
+        transform: translateY(-100%);
+        border-radius: 0 0 15px 10px;
+        z-index: -1;
+        overflow: hidden;
+
+        &.active {
+          z-index: 1;
+          height: 100%;
+          transform: translateY(0);
+        }
+      }
+
+      &__options {
+        padding: 5px 10px;
+        background-color: var(--white);
+        transition: all .3s;
+
+        & span {
+          display: none;
+        }
+
+        &:hover {
+          background-color: rgb(255, 255, 255, 0.8);
+        }
+
+        &:not(:last-child) {
+          border-bottom: 0.5px solid var(--dark-grey);
+        }
+
+        &:last-child {
+          border-radius: 0 0 10px 10px;
         }
       }
     }
-
-    #customSelect {
-      position: relative;
-      cursor: pointer;
-    }
-
-    #customSelect .selectedOption {
-      padding: 8px 15px;
-      width: 100%;
-      max-width: 410px;
-      border-radius: 15px;
-      color: var(--black);
-      background-color: var(--white);
-    }
-
-    #customSelect ul {
-      // position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      max-width: 300px;
-      color: var(--black);
-      background-color: #fff;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: none;
-    }
-
-    #customSelect ul li {
-      padding: 10px;
-      cursor: pointer;
-    }
-
-    #customSelect ul li:hover {
-      background-color: #f0f0f0;
-    }
-
-
-
 
   }
 }
 
 // ------- APPLICATION -- ends -------
 
+
+
+// ------- TYPES -------
 
 .types {
   padding: 100px 0;
@@ -1212,6 +1262,117 @@ body {
   }
 }
 
+// ------- TYPES -- ends -------
+
+
+// ------- EMPLOYEE -------
+.employee {
+  padding: 100px 0;
+
+  &__wrapper {
+    gap: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__content {
+    width: 100%;
+    max-width: 557px;
+  }
+
+  &__inner-title {
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.3em;
+    color: #393939;
+    margin-bottom: 1px;
+  }
+
+  &__text {
+    font-size: 24px;
+    line-height: 1.3em;
+    color: #525252;
+  }
+
+  &__blocks {
+    position: relative;
+    width: 333px;
+    height: 273px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__text-wrapper {
+    position: absolute;
+    width: 100%;
+    max-width: 295px;
+    bottom: 30px;
+    padding: 10px;
+    left: 0;
+    background-color: var(--white);
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.3em;
+    color: #393939;
+  }
+
+  &__post {
+    color: var(--red);
+  }
+
+  &__swiper {
+    position: relative;
+  }
+
+  .swiper {
+    width: 100%;
+    max-width: 667px;
+    height: 545px;
+    border-radius: 33px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    width: 50px;
+    top: 495px;
+    margin-top: 0;
+
+    &::after,
+    &::before {
+      display: none;
+    }
+
+    &.active {
+      & svg {
+        & path {
+          stroke: var(--black)
+        }
+      }
+    }
+
+  }
+
+  .swiper-button-prev {
+    left: 730px;
+  }
+
+  .swiper-button-next {
+    right: -200px;
+    transform: rotate(-180deg);
+  }
+}
+
+// ------- EMPLOYEE -- ends -------
 
 
 // ------- FAQ -------
@@ -1228,10 +1389,6 @@ body {
     align-items: center;
     justify-content: center;
   }
-
-  &__content {}
-
-  &__accrodion {}
 
   .faq-content {
     width: 100%;
@@ -1263,6 +1420,12 @@ body {
       max-width: 220px;
       border-radius: 15px;
       background-color: var(--red);
+      transition: all .3s;
+
+      &:hover {
+        color: var(--red);
+        background-color: #5A5A5A;
+      }
     }
   }
 
@@ -1291,11 +1454,12 @@ body {
       &::before {
         content: "";
         position: absolute;
-        top: 32px;
+        top: 31px;
         width: 20px;
         height: 2px;
         border-radius: 2px;
         background-color: var(--red);
+        transition: all .3s;
       }
 
       &::after {
@@ -1305,6 +1469,12 @@ body {
       &::before {
         right: 20px;
         transform: rotate(90deg);
+      }
+
+      &.active {
+        &::before {
+          transform: rotate(0deg);
+        }
       }
     }
 
@@ -1337,7 +1507,7 @@ body {
 
 // ------- FOOTER -------
 .footer {
-  padding: 55px 0;
+  padding: 55px 0 0;
   background: url("../images/application-bg.png") no-repeat center/cover;
 
   &__wrapper {
@@ -1389,6 +1559,20 @@ body {
       }
     }
   }
+
+  &__copy {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 30px;
+    border-top: 1px solid var(--dark-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    gap: 4px;
+  }
 }
 
 // ------- FOOTER -- ends -------
@@ -1425,6 +1609,26 @@ body {
       }
     }
   }
+
+  .employee {
+    &__blocks {
+      height: 235px;
+    }
+
+    .swiper {
+      max-width: 550px;
+      height: 470px;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      top: 450px;
+    }
+
+    .swiper-button-prev {
+      left: 600px;
+    }
+  }
 }
 
 @media (max-width: 991px) {
@@ -1446,6 +1650,7 @@ body {
   }
 
   .hero {
+
     &__bg {
       &::after {
         width: 430px;
@@ -1465,7 +1670,7 @@ body {
     &__list {
       &::before {
         top: -303px;
-        left: -138px;
+        left: -70px;
         height: 545px;
       }
     }
@@ -1558,6 +1763,38 @@ body {
           height: 30px;
         }
       }
+    }
+  }
+
+  .employee {
+    padding: 80px 0;
+
+    &__wrapper {
+      gap: 80px;
+      flex-direction: column;
+    }
+
+    &__inner-title {
+      font-size: 27px;
+    }
+
+    &__text {
+      font-size: 20px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: 485px;
+    }
+
+    .swiper-button-prev {
+      left: 38%;
+      transform: translateX(-38%);
+    }
+
+    .swiper-button-next {
+      right: 38%;
+      transform: rotate(-180deg) translateX(-38%);
     }
   }
 
@@ -1770,6 +2007,41 @@ body {
     }
   }
 
+  .employee {
+    padding: 60px 0;
+
+    &__blocks {
+      height: 200px;
+    }
+
+    &__text-wrapper {
+      padding: 5px;
+      bottom: 15px;
+    }
+
+    &__name {
+      font-size: 14px;
+    }
+
+    &__inner-title {
+      font-size: 23px;
+    }
+
+    &__text {
+      font-size: 17px;
+    }
+
+    .swiper {
+      max-width: 400px;
+      height: 400px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: 420px;
+    }
+  }
+
   .faq {
     padding: 60px 0;
 
@@ -1816,6 +2088,14 @@ body {
 
   .advantages {
     padding: 25px 0;
+
+    &__list {
+      &::before {
+        top: -200px;
+        left: -144px;
+        height: 400px;
+      }
+    }
 
     &__text {
       font-size: 14px;
@@ -1988,6 +2268,68 @@ body {
     }
   }
 
+  .employee {
+    padding: 25px 0;
+
+    &__blocks {
+      width: 100%;
+      height: 170px;
+    }
+
+    &__text-wrapper {
+      max-width: 120px;
+    }
+
+    &__name {
+      font-size: 13px;
+    }
+
+    &__post {
+      font-size: 12px;
+    }
+
+    &__inner-title {
+      font-size: 22px;
+    }
+
+    &__text {
+      font-size: 15px;
+    }
+
+    .swiper {
+      max-width: 290px;
+      height: 338px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      top: 350px;
+    }
+  }
+
+  .faq {
+    .accordion {
+      &__top {
+        font-size: 14px;
+      }
+    }
+
+    .faq-content {
+      &__title {
+        font-size: 20px;
+      }
+
+      &__text {
+        font-size: 14px;
+      }
+
+      &__btn {
+        font-size: 14px;
+        padding: 8px 20px;
+      }
+    }
+  }
+
   .footer {
     &__wrapper {
       display: grid;
@@ -2017,5 +2359,12 @@ body {
       grid-row: 2 / 3;
       flex-wrap: wrap;
     }
+  }
+}
+
+
+@media (min-width: 768px) {
+  .header-menu {
+    display: none;
   }
 }
