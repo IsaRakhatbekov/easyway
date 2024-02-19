@@ -144,6 +144,7 @@ body {
 }
 .header__btn {
   padding: 15px 28px;
+
   border-radius: 10px;
   color: var(--white);
   border: 1px solid var(--red);
@@ -265,6 +266,9 @@ body {
 .hero__content {
   width: 100%;
   max-width: 580px;
+}
+.hero__num {
+  color: var(--red);
 }
 .hero__title {
   font-size: calc(30px + 1.3684210526vw);
@@ -625,7 +629,7 @@ body {
 }
 
 .appliaction {
-  padding: 50px 0 100px;
+  padding: 100px 0 100px;
   color: var(--white);
 }
 .appliaction__wrapper {
@@ -1826,3 +1830,35 @@ body {
     display: none;
   }
 }
+.employee__title {
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.3em;
+  text-align: center;
+}
+.employee__title span {
+  color: var(--red);
+}
+
+.swiper {
+  margin-top: 60px;
+}
+
+.swiper-slide {
+  display: grid;
+  grid-template-columns: 60% 40%;
+}
+
+.photo-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.photo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/*# sourceMappingURL=style.css.map */
