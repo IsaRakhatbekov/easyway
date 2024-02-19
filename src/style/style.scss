@@ -635,7 +635,7 @@ body {
         border-bottom-right-radius: 20px;
       }
 
-      & > div > .process__numbers::before {
+      &>div>.process__numbers::before {
         content: "";
         position: absolute;
         height: 95px;
@@ -678,7 +678,7 @@ body {
     }
 
     &:nth-child(5) {
-      & > div > .process__numbers::before {
+      &>div>.process__numbers::before {
         content: "";
         position: absolute;
         height: 55px;
@@ -686,7 +686,7 @@ body {
         top: -55px;
         background: url("../images/arrow.png") no-repeat center/cover;
 
-        & > div > .process__numbers::before {
+        &>div>.process__numbers::before {
           height: 50px;
           bottom: 34px;
         }
@@ -750,7 +750,7 @@ body {
       border: 1px solid var(--red);
     }
   }
-  
+
   &__items-title {
     font-size: 22px;
     line-height: 1.3em;
@@ -2407,8 +2407,7 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
-.photo-img {
-}
+.photo-img {}
 
 .photo-img img {
   width: 100%;
