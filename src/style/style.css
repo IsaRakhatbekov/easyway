@@ -743,7 +743,7 @@ body {
 .appliaction .form .custom-select__wrapper.active {
   z-index: 1;
   height: 100%;
-  transform: translateY(0);
+  transform: translateY(-5%);
 }
 .appliaction .form .custom-select__options {
   padding: 5px 10px;
