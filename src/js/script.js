@@ -148,18 +148,25 @@ const formBtn = document.getElementById('submitBtn');
 const validateForm = () => {
     let checkError = true;
 
-    if (nameValue.value.trim()) {
+    if (!nameValue.value.trim()) {
         nameError.innerHTML = 'Пожалуйста, введите ваше имя';
         nameError.style.color = 'red';
 
         checkError = false;
+    } else {
+        nameError.innerHTML = 'Имя *';
+        nameError.style.color = '';
     }
-    if (phoneValue.value.trim()) {
+    if (!phoneValue.value.trim()) {
         phoneError.innerHTML = 'Пожалуйста, введите номер телефона';
         phoneError.style.color = 'red';
 
         checkError = false;
+    } else {
+        phoneError.innerHTML = 'Номер телефона *';
+        phoneError.style.color = '';
     }
+
 
     return checkError;
 }
