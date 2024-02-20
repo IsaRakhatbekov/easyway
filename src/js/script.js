@@ -145,32 +145,81 @@ const emailValue = document.getElementById('form__email');
 const nameError = document.getElementById('form__name__error');
 const phoneError = document.getElementById('form__phone__error');
 const formBtn = document.getElementById('submitBtn');
+const isOnlyLetters = (name) => {
+    return /^[a-zA-Z]+$/.test(name);
+};
+
 const validateForm = () => {
     let checkError = true;
 
     if (!nameValue.value.trim()) {
         nameError.innerHTML = 'Пожалуйста, введите ваше имя';
         nameError.style.color = 'red';
-
+        checkError = false;
+    } else if (!isOnlyLetters(nameValue.value)) {
+        nameError.innerHTML = 'Имя должно содержать только буквы';
+        nameError.style.color = 'red';
+        checkError = false;
+    } else if (nameValue.value.length > 25) {
+        nameError.innerHTML = 'Имя должно содержать не более 24 символов';
+        nameError.style.color = 'red';
         checkError = false;
     } else {
         nameError.innerHTML = 'Имя *';
         nameError.style.color = '';
     }
+
+    // Проверка номера телефона
     if (!phoneValue.value.trim()) {
         phoneError.innerHTML = 'Пожалуйста, введите номер телефона';
         phoneError.style.color = 'red';
-
         checkError = false;
     } else {
-        phoneError.innerHTML = 'Номер телефона *';
-        phoneError.style.color = '';
+        // Удаление всех символов и пробелов
+        const phoneDigits = phoneValue.value.replace(/[^0-9]/g, '');
+        console.log(phoneDigits)
+
+        // Проверка длины
+        if (phoneDigits.length > 13) {
+            phoneError.innerHTML = 'Номер телефона не должен превышать 12 цифр';
+            phoneError.style.color = 'red';
+            checkError = false;
+        } else if (!phoneDigits.length) {
+            phoneError.innerHTML = 'Введите корректный номер телефона';
+            phoneError.style.color = 'red';
+            checkError = false;
+        } else if (/[a-zA-Z]/g.test(phoneValue.value)) {
+            phoneError.innerHTML = 'В номере телефона не должно быть букв';
+            phoneError.style.color = 'red';
+            checkError = false;
+        } else {
+            phoneError.innerHTML = 'Номер телефона *';
+            phoneError.style.color = '';
+        }
     }
 
 
     return checkError;
-}
+};
 
+const sendInfo = async (form) => {
+    try {
+        const data = await fetch('https://metalabs.kg:8084/api/telegramBot/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(form),
+        })
+        const resp = await data.text()
+        if (resp === 'OK') {
+            console.log("ghjtik")
+            return true
+        }
+    } catch (error) {
+        console.log(error)
+    }
+}
 formBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
@@ -180,8 +229,72 @@ formBtn.addEventListener('click', (event) => {
 
     const formData = {
         name: nameValue.value,
-        phone: phoneValue.value,
-        mail: emailValue.value || ' '
+        phone: phoneValue.value.replace(/[^0-9]/g, ''),
+        mail: emailValue.value || 'Не указано',
     };
-    console.log(formData);
+
+    if (sendInfo(formData)) {
+        const formMessage = document.createElement('div');
+        const form = document.querySelector('.appliaction__content');
+
+        formMessage.style.color = '#fff';
+        formMessage.style.backgroundColor = "#F63235";
+        formMessage.style.width = '546px';
+        formMessage.style.height = '92px';
+        formMessage.style.borderRadius = '15px';
+        formMessage.style.marginTop = '30px';
+        formMessage.style.border = '1px solid #FEA9A9';
+
+        const formMessageIcon = document.createElement('div');
+        formMessageIcon.style.width = '44px';
+        formMessageIcon.style.height = '44px';
+        formMessageIcon.style.borderRadius = '8px';
+        formMessageIcon.style.backgroundColor = '#fff';
+        formMessageIcon.style.display = 'flex';
+        formMessageIcon.style.justifyContent = 'center';
+        formMessageIcon.style.alignItems = 'center';
+        formMessageIcon.style.margin= '0 16px 0 13px';
+
+        const img = document.createElement('img');
+
+        img.src = './src/images/icon-check.svg';
+        img.style.width = '23.33px';
+        img.style.height = '23.33px';
+
+        const formMessageWrapper = document.createElement('div');
+        const formMessageText = document.createElement('p');
+
+        formMessageText.innerText = 'Ваша заявка успешно отправлена! Наши менеджеры свяжутся с вами в ближайшее время.'
+        formMessageText.style.color = '#fff';
+        formMessageText.style.fontSize = '16px';
+        formMessageText.style.lineHeight = '1.3em';
+        formMessageText.style.width = '418px';
+        formMessageText.style.height = '44px';
+
+        formMessageWrapper.style.width = '100%';
+        formMessageWrapper.style.height = '100%';
+        formMessageWrapper.style.display = 'flex';
+        formMessageWrapper.style.justifyContent = 'center';
+        formMessageWrapper.style.alignItems = 'center';
+
+        const btnClose = document.createElement('button');
+        const btnCloseImg = document.createElement('img');
+        btnCloseImg.src = './src/images/x-icon.svg';
+        btnClose.style.borderRadius = '29px';
+        btnClose.style.backgroundColor = '#fff';
+        btnClose.style.width = '24px';
+        btnClose.style.height = '24px';
+        btnClose.style.margin = '10px 10px 58px 15px  ';
+
+        btnCloseImg.style.width = '10px';
+        btnCloseImg.style.height = '10px';
+
+        form.appendChild(formMessage)
+        formMessage.appendChild(formMessageWrapper)
+        formMessageWrapper.appendChild(formMessageIcon)
+        formMessageIcon.appendChild(img)
+        formMessageWrapper.appendChild(formMessageText)
+        formMessageWrapper.appendChild(btnClose)
+        btnClose.appendChild(btnCloseImg)
+    }
 });
