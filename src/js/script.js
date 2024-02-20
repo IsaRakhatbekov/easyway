@@ -19,7 +19,6 @@ mobileMenuLinks.forEach(link => {
 });
 // burger menu -- ends ------------------------------------------------------------
 
-
 // dropdown in form ------------------------------------------------------------------------------------------------
 const customSelectInput = document.querySelector('.custom-select__input');
 const customSelectWrapper = document.querySelector('.custom-select__wrapper');
@@ -181,7 +180,7 @@ formBtn.addEventListener('click', (event) => {
     const formData = {
         name: nameValue.value,
         phone: phoneValue.value,
-        mail: emailValue.value || ' '
+        mail: emailValue.value || 'Не указано'
     };
     console.log(formData);
 });
