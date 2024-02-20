@@ -5,22 +5,19 @@ const headerMenuBtn = document.querySelector(".header__menu-btn");
 const mobileMenuLinks = document.querySelectorAll(".header-menu__links");
 
 headerMenuBtn.addEventListener('click', () => {
-  headerMenuBtn.classList.toggle('active');
-  headerMenu.classList.toggle('active');
-  body.classList.toggle('lock');
+    headerMenuBtn.classList.toggle('active');
+    headerMenu.classList.toggle('active');
+    body.classList.toggle('lock');
 });
 
 mobileMenuLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    headerMenuBtn.classList.remove('active');
-    headerMenu.classList.remove('active');
-    body.classList.remove('lock');
-  });
+    link.addEventListener('click', () => {
+        headerMenuBtn.classList.remove('active');
+        headerMenu.classList.remove('active');
+        body.classList.remove('lock');
+    });
 });
 // burger menu -- ends ------------------------------------------------------------
-
-
-
 
 
 // dropdown in form ------------------------------------------------------------------------------------------------
@@ -30,30 +27,30 @@ const customSelectOptions = document.querySelectorAll('.custom-select__options')
 const customSelectSpan = document.querySelectorAll('.custom-select__span');
 
 customSelectInput.addEventListener('click', () => {
-  customSelectInput.classList.toggle('active');
-  customSelectWrapper.classList.toggle('active');
+    customSelectInput.classList.toggle('active');
+    customSelectWrapper.classList.toggle('active');
 });
 
 customSelectOptions.forEach((option, index) => {
-  option.addEventListener('click', (event) => {
-    customSelectInput.classList.remove('active');
-    customSelectWrapper.classList.remove('active');
+    option.addEventListener('click', (event) => {
+        customSelectInput.classList.remove('active');
+        customSelectWrapper.classList.remove('active');
 
-    // Получаем текст выбранного элемента из custom-select__options
-    const innerTextOption = event.target.innerText;
+        // Получаем текст выбранного элемента из custom-select__options
+        const innerTextOption = event.target.innerText;
 
-    // Получаем текст соответствующего элемента из custom-select__span и удаляем пробелы
-    const innerTextSpan = customSelectSpan[index].innerText.replace(/\s/g, '');
+        // Получаем текст соответствующего элемента из custom-select__span и удаляем пробелы
+        const innerTextSpan = customSelectSpan[index].innerText.replace(/\s/g, '');
 
-    // Соединяем тексты и устанавливаем в custom-select__input
-    const combinedText = `${innerTextOption} ${innerTextSpan}`;
-    customSelectInput.placeholder = combinedText;
-  });
+        // Соединяем тексты и устанавливаем в custom-select__input
+        const combinedText = `${innerTextOption} ${innerTextSpan}`;
+        customSelectInput.placeholder = combinedText;
+    });
 });
 // THIS IS FOR RESET INPUTS VALUE
 //  document.addEventListener('DOMContentLoaded', function () {
 //     const resetButtons = document.querySelectorAll('.reset-btn');
-    
+
 //     resetButtons.forEach(function (button) {
 //       button.addEventListener('click', function () {
 //         const input = this.parentNode.querySelector('input');
@@ -62,9 +59,6 @@ customSelectOptions.forEach((option, index) => {
 //     });
 //   });
 // dropdown in form -- ends ------------------------------------------------------------------------------------------------------
-
-
-
 
 
 // accrodion in section FAQ ------------------------------------------------
@@ -89,54 +83,45 @@ customSelectOptions.forEach((option, index) => {
 // });
 
 
-
 const accordionTops = document.querySelectorAll('.accordion__top');
 const accordionContents = document.querySelectorAll('.accordion__content');
 
 accordionTops.forEach(function (accordionTop, index) {
-  accordionTop.addEventListener('click', function () {
-    const isActive = accordionContents[index].classList.contains('active');
+    accordionTop.addEventListener('click', function () {
+        const isActive = accordionContents[index].classList.contains('active');
 
-    accordionContents.forEach(content => content.classList.remove('active'));
-    accordionTops.forEach(top => top.classList.remove('active'));
+        accordionContents.forEach(content => content.classList.remove('active'));
+        accordionTops.forEach(top => top.classList.remove('active'));
 
-    if (!isActive) {
-      accordionContents[index].classList.add('active');
-      accordionTop.classList.add('active');
-    }
-  });
+        if (!isActive) {
+            accordionContents[index].classList.add('active');
+            accordionTop.classList.add('active');
+        }
+    });
 });
-
-
-
-
-
-
-
 
 
 // accrodio in section FAQ -- ends------------------------------------------
 
 
-
 // SWIPER ------------------------------
 
 const swiper = new Swiper('.swiper', {
-  // Optional parameters
-  direction: 'horizontal',
-  slidesPerView: 2,
-  loop: true,
+    // Optional parameters
+    direction: 'horizontal',
+    slidesPerView: 2,
+    loop: true,
 
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-  },
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
 
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
 });
 
 const swiperBtnPrev = document.querySelector('.swiper-button-prev')
@@ -152,3 +137,51 @@ swiperBtnNext.addEventListener('click', () => {
 })
 
 // SWIPER -- ends ---------------------
+
+// VALIDATION FORM ------------------------
+const nameValue = document.getElementById('form__name');
+const phoneValue = document.getElementById('phone');
+const emailValue = document.getElementById('form__email');
+const nameError = document.getElementById('form__name__error');
+const phoneError = document.getElementById('form__phone__error');
+const formBtn = document.getElementById('submitBtn');
+const validateForm = () => {
+    let checkError = true;
+
+    if (!nameValue.value.trim()) {
+        nameError.innerHTML = 'Пожалуйста, введите ваше имя';
+        nameError.style.color = 'red';
+
+        checkError = false;
+    } else {
+        nameError.innerHTML = 'Имя *';
+        nameError.style.color = '';
+    }
+    if (!phoneValue.value.trim()) {
+        phoneError.innerHTML = 'Пожалуйста, введите номер телефона';
+        phoneError.style.color = 'red';
+
+        checkError = false;
+    } else {
+        phoneError.innerHTML = 'Номер телефона *';
+        phoneError.style.color = '';
+    }
+
+
+    return checkError;
+}
+
+formBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (!validateForm()) {
+        return;
+    }
+
+    const formData = {
+        name: nameValue.value,
+        phone: phoneValue.value,
+        mail: emailValue.value || ' '
+    };
+    console.log(formData);
+});
