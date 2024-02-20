@@ -19,7 +19,6 @@ mobileMenuLinks.forEach(link => {
 });
 // burger menu -- ends ------------------------------------------------------------
 
-
 // dropdown in form ------------------------------------------------------------------------------------------------
 const customSelectInput = document.querySelector('.custom-select__input');
 const customSelectWrapper = document.querySelector('.custom-select__wrapper');
