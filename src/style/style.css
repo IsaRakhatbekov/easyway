@@ -674,6 +674,8 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  width: 100%;
+  max-width: 410px;
 }
 .appliaction .form__label {
   font-size: 18px;
@@ -682,13 +684,23 @@ body {
 .appliaction .form__inputs {
   font-size: 18px;
   padding: 8px 15px;
-  width: 100%;
-  max-width: 410px;
   border-radius: 15px;
   background-color: var(--white);
 }
 .appliaction .form__inputs:focus {
   outline: 1px solid var(--red);
+}
+.appliaction .form__btn-reset {
+  display: none;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 38px;
+  right: 15px;
+  background: url("../images/reset.svg") no-repeat center/cover;
+}
+.appliaction .form__btn-reset.active {
+  display: block;
 }
 .appliaction .form__btn {
   width: 100%;
@@ -729,21 +741,24 @@ body {
   border-radius: 15px 15px 15px 0;
 }
 .appliaction .form .custom-select__wrapper {
-  position: relative;
+  position: absolute;
   transition: all 0.3s;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   height: 0;
   transform: translateY(-100%);
-  border-radius: 0 0 15px 10px;
+  border-radius: 0 0 10px 10px;
   z-index: -1;
   overflow: hidden;
+  box-shadow: -1px 34px 37px -3px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: -1px 34px 37px -3px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: -1px 34px 37px -3px rgba(0, 0, 0, 0.7);
 }
 .appliaction .form .custom-select__wrapper.active {
   z-index: 1;
-  height: 100%;
-  transform: translateY(-5%);
+  height: auto;
+  transform: translateY(55%);
 }
 .appliaction .form .custom-select__options {
   padding: 5px 10px;
