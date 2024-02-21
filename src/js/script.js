@@ -19,7 +19,6 @@ mobileMenuLinks.forEach(link => {
 });
 // burger menu -- ends ------------------------------------------------------------
 
-
 // dropdown in form ------------------------------------------------------------------------------------------------
 const customSelectInput = document.querySelector('.custom-select__input');
 const customSelectWrapper = document.querySelector('.custom-select__wrapper');
@@ -48,67 +47,41 @@ customSelectOptions.forEach((option, index) => {
     });
 });
 // THIS IS FOR RESET INPUTS VALUE
-    const resetButtons = document.querySelectorAll('.reset-btn');
-    const formInputs = document.querySelectorAll('.form__inputs')
+//  document.addEventListener('DOMContentLoaded', function () {
+//     const resetButtons = document.querySelectorAll('.reset-btn');
 
-    resetButtons.forEach(function (button) {
-      button.addEventListener('click', function () {
-        const input = this.parentNode.querySelector('input');
-        input.value = ''; // Сбрасываем значение инпута
-      });
-    });
-
-
-
-
-
-  
-
-
-  const nameValue = document.getElementById('form__name');
-  const phoneValue = document.getElementById('phone');
-  const emailValue = document.getElementById('form__email');
-  const nameError = document.getElementById('form__name__error');
-  const phoneError = document.getElementById('form__phone__error');
-  const formBtn = document.getElementById('submitBtn');
-  const validateForm = () => {
-    let checkError = true;
-    if (!nameValue.value.trim()) {
-        nameError.innerHTML = 'Пожалуйста, введите ваше имя';
-        nameError.style.color = 'red';
-        checkError = false;
-    } else {
-        nameError.innerHTML = 'Имя *';
-        nameError.style.color = '';
-    }
-    if (!phoneValue.value.trim()) {
-        phoneError.innerHTML = 'Пожалуйста, введите номер телефона';
-        phoneError.style.color = 'red';
-
-        checkError = false;
-    } else {
-        phoneError.innerHTML = 'Номер телефона *';
-        phoneError.style.color = '';
-    }
-    return checkError;
-}
-
-formBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    if (!validateForm()) {
-        return;
-    }
-    const formData = {
-        name: nameValue.value,
-        phone: phoneValue.value,
-        mail: emailValue.value || ' '
-    };
-    console.log(formData);
-});
+//     resetButtons.forEach(function (button) {
+//       button.addEventListener('click', function () {
+//         const input = this.parentNode.querySelector('input');
+//         input.value = ''; // Сбрасываем значение инпута
+//       });
+//     });
+//   });
 // dropdown in form -- ends ------------------------------------------------------------------------------------------------------
 
 
 // accrodion in section FAQ ------------------------------------------------
+
+// const accordionTop = document.querySelectorAll('.accordion__top');
+// const accordionContent = document.querySelectorAll('.accordion__content');
+
+// accordionTop.forEach(function (accordionTop, index) {
+//   accordionTop.addEventListener('click', function () {
+//     accordionContent[index].classList.toggle('active');
+//     for (let i = 0; i < accordionContent.length; i++) {
+//       if (i !== index) {
+//         accordionContent[i].classList.remove('active');
+//       }
+//     }
+//     for (let i = 0; i < accordionTop.length; i++) {
+//       if (i !== index) {
+//         accordionTop[i].classList.remove('active');
+//       }
+//     }
+//   });
+// });
+
+
 const accordionTops = document.querySelectorAll('.accordion__top');
 const accordionContents = document.querySelectorAll('.accordion__content');
 
@@ -133,12 +106,17 @@ accordionTops.forEach(function (accordionTop, index) {
 // SWIPER ------------------------------
 
 const swiper = new Swiper('.swiper', {
+    // Optional parameters
     direction: 'horizontal',
     slidesPerView: 2,
     loop: true,
+
+    // If we need pagination
     pagination: {
         el: '.swiper-pagination',
     },
+
+    // Navigation arrows
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -159,3 +137,102 @@ swiperBtnNext.addEventListener('click', () => {
 
 // SWIPER -- ends ---------------------
 
+// VALIDATION FORM ------------------------
+const nameValue = document.getElementById('form__name');
+const phoneValue = document.getElementById('phone');
+const emailValue = document.getElementById('form__email');
+const nameError = document.getElementById('form__name__error');
+const phoneError = document.getElementById('form__phone__error');
+const formBtn = document.getElementById('submitBtn');
+const isOnlyLetters = (name) => {
+    return /^[a-zA-Z]+$/.test(name);
+};
+
+const validateForm = () => {
+    let checkError = true;
+
+    if (!nameValue.value.trim()) {
+        nameError.innerHTML = 'Пожалуйста, введите ваше имя';
+        nameError.style.color = 'red';
+        checkError = false;
+    } else if (!isOnlyLetters(nameValue.value)) {
+        nameError.innerHTML = 'Имя должно содержать только буквы';
+        nameError.style.color = 'red';
+        checkError = false;
+    } else if (nameValue.value.length > 25) {
+        nameError.innerHTML = 'Имя должно содержать не более 24 символов';
+        nameError.style.color = 'red';
+        checkError = false;
+    } else {
+        nameError.innerHTML = 'Имя *';
+        nameError.style.color = '';
+    }
+
+    // Проверка номера телефона
+    if (!phoneValue.value.trim()) {
+        phoneError.innerHTML = 'Пожалуйста, введите номер телефона';
+        phoneError.style.color = 'red';
+        checkError = false;
+    } else {
+        // Удаление всех символов и пробелов
+        const phoneDigits = phoneValue.value.replace(/[^0-9]/g, '');
+        console.log(phoneDigits)
+
+        // Проверка длины
+        if (phoneDigits.length > 13) {
+            phoneError.innerHTML = 'Номер телефона не должен превышать 12 цифр';
+            phoneError.style.color = 'red';
+            checkError = false;
+        } else if (!phoneDigits.length) {
+            phoneError.innerHTML = 'Введите корректный номер телефона';
+            phoneError.style.color = 'red';
+            checkError = false;
+        } else if (/[a-zA-Z]/g.test(phoneValue.value)) {
+            phoneError.innerHTML = 'В номере телефона не должно быть букв';
+            phoneError.style.color = 'red';
+            checkError = false;
+        } else {
+            phoneError.innerHTML = 'Номер телефона *';
+            phoneError.style.color = '';
+        }
+    }
+
+
+    return checkError;
+};
+
+const sendInfo = async (form) => {
+    try {
+        const data = await fetch('https://metalabs.kg:8084/api/telegramBot/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(form),
+        })
+        const resp = await data.text()
+        if (resp === 'OK') {
+            return true
+        }
+    } catch (error) {
+        alert('Ошибка при отправке данных', error)
+    }
+}
+
+formBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    if (!validateForm()) {
+        return;
+    }
+
+    const formData = {
+        name: nameValue.value,
+        phone: phoneValue.value.replace(/[^0-9]/g, ''),
+        mail: emailValue.value || 'Не указано',
+    };
+
+    if (sendInfo(formData)) {
+      alert('Заявка отправлена! ^_^')
+    }
+});
