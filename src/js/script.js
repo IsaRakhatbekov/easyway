@@ -47,7 +47,7 @@ customSelectOptions.forEach((option, index) => {
     });
 });
 // THIS IS FOR RESET INPUTS VALUE
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const resetButtons = document.querySelectorAll('.reset-btn')
     const formInputs = document.querySelectorAll('.form__inputs')
 
@@ -77,6 +77,7 @@ customSelectOptions.forEach((option, index) => {
 
 
 // accrodion in section FAQ ------------------------------------------------
+
 const accordionTops = document.querySelectorAll('.accordion__top');
 const accordionContents = document.querySelectorAll('.accordion__content');
 

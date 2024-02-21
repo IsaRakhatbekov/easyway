@@ -317,19 +317,26 @@
 
               <div class="form__inputs-wrapper">
                 <label class="form__label" for="name" id="form__name__error">Имя*</label>
-                <input class="form__inputs name-input" type="text" id="form__name">
-                <button class="form__btn-reset reset-btn" type="button"></button>
+                <div class="form__reset-wrapper">
+                  <input class="form__inputs name-input" type="text" id="form__name">
+                  <button class="form__btn-reset reset-btn" type="button"></button>
+                </div>
               </div>
 
               <div class="form__inputs-wrapper">
                 <label class="form__label" for="email">Почта</label>
-                <input class="form__inputs email-input" type="email" id="form__email">
-                <button class="form__btn-reset reset-btn" type="button"></button>
+                <div class="form__reset-wrapper">
+                  <input class="form__inputs email-input" type="email" id="form__email">
+                  <button class="form__btn-reset reset-btn" type="button"></button>
+                </div>
               </div>
 
               <div class="custom-select">
                 <label class="form__label" for="phone" id="form__phone__error">Номер телефона *</label>
-                <input class="custom-select__input" id="phone" type="text" placeholder="🇷🇺 +7(___) ___ - __-__">
+                <div class="form__reset-wrapper">
+                  <input class="custom-select__input" id="phone" type="text" placeholder="🇷🇺 +7(___) ___ - __-__">
+                  <button class="form__btn-reset reset-btn" type="button"></button>
+                </div>
                 <div class="custom-select__wrapper">
                   <span class="custom-select__options">🇷🇺<span class="custom-select__span">+7(___)
                       ___-__-__</span></span>
