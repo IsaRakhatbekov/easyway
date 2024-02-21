@@ -48,15 +48,31 @@ customSelectOptions.forEach((option, index) => {
 });
 // THIS IS FOR RESET INPUTS VALUE
   document.addEventListener('DOMContentLoaded', function () {
-    const resetButtons = document.querySelectorAll('.reset-btn');
+    const resetButtons = document.querySelectorAll('.reset-btn')
+    const formInputs = document.querySelectorAll('.form__inputs')
 
     resetButtons.forEach(function (button) {
+      button.style.display = 'none'
       button.addEventListener('click', function () {
-        const input = this.parentNode.querySelector('input');
+        const input = this.parentNode.querySelector('input')
         input.value = ''; // Сбрасываем значение инпута
-      });
-    });
-  });
+        button.style.display = 'none'
+      })
+    })
+
+    formInputs.forEach(function (input) {
+      input.addEventListener('input', function (e) {
+        const button = this.parentNode.querySelector('button')
+        if (e.target.value) {
+          button.style.display = 'block'
+        } else {
+          button.style.display = 'none'
+        }
+      })
+    })
+  })
+
+
 // dropdown in form -- ends ------------------------------------------------------------------------------------------------------
 
 
@@ -127,7 +143,7 @@ const formSuccessfully = document.querySelector('.form-successfully')
 const formSuccessfullyCloseBtn  = document.querySelector('.form-successfully__close')
 
 const isOnlyLetters = (name) => {
-    return /^[a-zA-Z]+$/.test(name);
+    return /^[a-zA-Zа-яА-Я\s]+$/.test(name);
 };
 
 const validateForm = () => {
@@ -158,7 +174,6 @@ const validateForm = () => {
     } else {
         // Удаление всех символов и пробелов
         const phoneDigits = phoneValue.value.replace(/[^0-9]/g, '');
-        console.log(phoneDigits)
 
         // Проверка длины
         if (phoneDigits.length > 13) {
@@ -213,11 +228,15 @@ formBtn.addEventListener('click', (event) => {
         phone: phoneValue.value.replace(/[^0-9]/g, ''),
         mail: emailValue.value || 'Не указано',
     };
+    console.log(formData)
 
     if (sendInfo(formData)) {
       formSuccessfully.classList.add('active')
       formSuccessfullyCloseBtn.addEventListener('click', () => {
         formSuccessfully.classList.remove('active')
       })
+      setTimeout(() => {
+        formSuccessfully.classList.remove('active')
+      }, 3000)
     }
 });
