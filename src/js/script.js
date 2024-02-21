@@ -47,41 +47,20 @@ customSelectOptions.forEach((option, index) => {
     });
 });
 // THIS IS FOR RESET INPUTS VALUE
-//  document.addEventListener('DOMContentLoaded', function () {
-//     const resetButtons = document.querySelectorAll('.reset-btn');
+  document.addEventListener('DOMContentLoaded', function () {
+    const resetButtons = document.querySelectorAll('.reset-btn');
 
-//     resetButtons.forEach(function (button) {
-//       button.addEventListener('click', function () {
-//         const input = this.parentNode.querySelector('input');
-//         input.value = ''; // Сбрасываем значение инпута
-//       });
-//     });
-//   });
+    resetButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        const input = this.parentNode.querySelector('input');
+        input.value = ''; // Сбрасываем значение инпута
+      });
+    });
+  });
 // dropdown in form -- ends ------------------------------------------------------------------------------------------------------
 
 
 // accrodion in section FAQ ------------------------------------------------
-
-// const accordionTop = document.querySelectorAll('.accordion__top');
-// const accordionContent = document.querySelectorAll('.accordion__content');
-
-// accordionTop.forEach(function (accordionTop, index) {
-//   accordionTop.addEventListener('click', function () {
-//     accordionContent[index].classList.toggle('active');
-//     for (let i = 0; i < accordionContent.length; i++) {
-//       if (i !== index) {
-//         accordionContent[i].classList.remove('active');
-//       }
-//     }
-//     for (let i = 0; i < accordionTop.length; i++) {
-//       if (i !== index) {
-//         accordionTop[i].classList.remove('active');
-//       }
-//     }
-//   });
-// });
-
-
 const accordionTops = document.querySelectorAll('.accordion__top');
 const accordionContents = document.querySelectorAll('.accordion__content');
 
@@ -144,6 +123,9 @@ const emailValue = document.getElementById('form__email');
 const nameError = document.getElementById('form__name__error');
 const phoneError = document.getElementById('form__phone__error');
 const formBtn = document.getElementById('submitBtn');
+const formSuccessfully = document.querySelector('.form-successfully')
+const formSuccessfullyCloseBtn  = document.querySelector('.form-successfully__close')
+
 const isOnlyLetters = (name) => {
     return /^[a-zA-Z]+$/.test(name);
 };
@@ -233,6 +215,9 @@ formBtn.addEventListener('click', (event) => {
     };
 
     if (sendInfo(formData)) {
-      alert('Заявка отправлена! ^_^')
+      formSuccessfully.classList.add('active')
+      formSuccessfullyCloseBtn.addEventListener('click', () => {
+        formSuccessfully.classList.remove('active')
+      })
     }
 });

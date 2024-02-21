@@ -10,6 +10,7 @@
 
 html {
   scroll-behavior: smooth;
+
   @media (max-width: 768px) {
     scroll-padding-top: 65px;
   }
@@ -842,7 +843,7 @@ body {
     }
 
     &__btn-reset {
-      display: none;
+      // display: none;
       position: absolute;
       width: 18px;
       height: 18px;
@@ -851,7 +852,7 @@ body {
       background: url("../images/reset.svg") no-repeat center/cover;
 
       &.active {
-        display: block;
+        // display: block;
       }
     }
 
@@ -943,6 +944,55 @@ body {
       }
     }
 
+    .form-successfully {
+      position: relative;
+      padding: 25px;
+      border-radius: 15px;
+      columns: var(--white);
+      background-color: var(--red);
+      margin-top: 10px;
+      transform: translateX(-100%);
+      opacity: 0;
+      height: 0;
+
+      gap: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      transition: all .3s;
+
+      &.active {
+        transform: translateX(0);
+        opacity: 1;
+        height: auto;
+      }
+
+      &__arrow {
+        width: 44px;
+        height: 44px;
+        background-color: var(--white);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &__text {
+        font-size: 16px;
+        max-width: 400px;
+      }
+
+      &__close {
+        position: absolute;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        right: 10px;
+        top: 10px;
+        background-color: var(--white);
+        border-radius: 12px;
+      }
+    }
   }
 }
 
@@ -2122,6 +2172,33 @@ body {
 
     &__wrapper {
       padding: 20px;
+    }
+
+    .form {
+      .form-successfully {
+        padding: 15px;
+
+        &.active {
+          transform: translateX(0);
+          opacity: 1;
+          height: auto;
+        }
+
+        &__text {
+          font-size: 14px;
+        }
+
+        &__close {
+          position: absolute;
+          cursor: pointer;
+          width: 24px;
+          height: 24px;
+          right: 10px;
+          top: 10px;
+          background-color: var(--white);
+          border-radius: 12px;
+        }
+      }
     }
   }
 
