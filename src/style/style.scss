@@ -11,6 +11,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 50px;
+
   @media (max-width: 768px) {
     scroll-padding-top: 65px;
   }
@@ -288,6 +289,7 @@ body {
     }
   }
 }
+
 #header__btn-form {
   display: block;
 }
@@ -888,10 +890,33 @@ body {
       gap: 5px;
       flex-direction: column;
 
+      &__arrow {
+        cursor: pointer;
+        display: inline-block;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        left: 12px;
+        top: 0;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: all .3s;
+
+        & svg {
+          width: 10px;
+          height: 10px;
+        }
+
+        &.active {
+          left: 12px;
+        }
+      }
+
       &__input {
         cursor: pointer;
         font-size: 18px;
-        padding: 8px 15px;
+        padding: 8px 15px 8px 45px;
         width: 100%;
         max-width: 410px;
         border-radius: 15px;
@@ -2002,6 +2027,15 @@ body {
         display: block;
       }
     }
+
+    .form {
+
+      .custom-select {
+        &__input {
+          padding: 8px 15px 8px 50px;
+        }
+      }
+    }
   }
 
   .process {
@@ -2456,7 +2490,7 @@ body {
   }
 }
 
-
+// -------- MEDIA ---- MIN-WIDTH ---- // 
 @media (min-width: 768px) {
   .header-menu {
     display: none;
