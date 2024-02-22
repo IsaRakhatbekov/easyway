@@ -334,20 +334,43 @@
               <div class="custom-select">
                 <label class="form__label" for="phone" id="form__phone__error">Номер телефона *</label>
                 <div class="form__reset-wrapper">
-                  <input class="custom-select__input" id="phone" type="text" placeholder="🇷🇺 +7(___) ___ - __-__">
+                  <span class="custom-select__arrow">
+                    <span class="custom-select__flag">
+                      🇷🇺
+                    </span>
+                    <svg viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M0.200408 0.739665C0.48226 0.436132 0.956809 0.418556 1.26034 0.700408L5 4.22652L8.73967 0.700408C9.0432 0.418556 9.51775 0.436132 9.7996 0.739665C10.0815 1.0432 10.0639 1.51775 9.76034 1.7996L5.51034 5.7996C5.22258 6.0668 4.77743 6.0668 4.48967 5.7996L0.239665 1.7996C-0.0638681 1.51775 -0.081444 1.0432 0.200408 0.739665Z"
+                        fill="#0A0B0D" />
+                    </svg>
+                  </span>
+                  <input class="custom-select__input" id="phone" type="tel" placeholder="">
                   <button class="form__btn-reset reset-btn" type="button"></button>
                 </div>
                 <div class="custom-select__wrapper">
-                  <span class="custom-select__options">🇷🇺<span class="custom-select__span">+7(___)
-                      ___-__-__</span></span>
-                  <span class="custom-select__options">🇧🇾<span class="custom-select__span">+375(__)
-                      ___-__-__</span></span>
-                  <span class="custom-select__options">🇰🇿<span class="custom-select__span">+7(___)
-                      ___-__-__</span></span>
-                  <span class="custom-select__options">🇰🇬<span class="custom-select__span">+996(___)
-                      ___-___</span></span>
+                  <span class="custom-select__options" data-mask="+{7}(000)000-00-00" data-value="7"
+                    data-flag="🇷🇺">🇷🇺<span class="custom-select__span">+7(___) ___ - __-__</span></span>
+                  <span class="custom-select__options" data-mask="+{375}(000)000-00-00" data-value="375"
+                    data-flag="🇧🇾">🇧🇾<span class="custom-select__span">+375(__) ___ - __-__</span></span>
+                  <span class="custom-select__options" data-mask="+{7}(000)000-00-00" data-value="7"
+                    data-flag="🇰🇿">🇰🇿<span class="custom-select__span">+7(___) ___ - __-__</span></span>
+                  <span class="custom-select__options" data-mask="+{996}(000)00-00-00" data-value="996"
+                    data-flag="🇰🇬">🇰🇬<span class="custom-select__span">+996(___) ___ - ___</span></span>
                 </div>
               </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
               <button class="form__btn" id="submitBtn">Отправить заявку</button>
               <div class="form__successfully form-successfully">
                 <div class="form-successfully__arrow">
@@ -983,6 +1006,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/imask"></script>
   <script src="./src/js/script.js"></script>
 </body>
 

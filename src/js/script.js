@@ -24,10 +24,12 @@ const customSelectInput = document.querySelector('.custom-select__input');
 const customSelectWrapper = document.querySelector('.custom-select__wrapper');
 const customSelectOptions = document.querySelectorAll('.custom-select__options');
 const customSelectSpan = document.querySelectorAll('.custom-select__span');
+const customSelectArrow = document.querySelector('.custom-select__arrow')
 
-customSelectInput.addEventListener('click', () => {
+customSelectArrow.addEventListener('click', () => {
     customSelectInput.classList.toggle('active');
     customSelectWrapper.classList.toggle('active');
+    customSelectArrow.classList.toggle('active')
 });
 
 customSelectOptions.forEach((option, index) => {
@@ -42,25 +44,25 @@ customSelectOptions.forEach((option, index) => {
         const innerTextSpan = customSelectSpan[index].innerText.replace(/\s/g, '');
 
         // Соединяем тексты и устанавливаем в custom-select__input
-        const combinedText = `${innerTextOption} ${innerTextSpan}`;
+        const combinedText = `${innerTextSpan}`;
         customSelectInput.placeholder = combinedText;
     });
 });
 // THIS IS FOR RESET INPUTS VALUE
 document.addEventListener('DOMContentLoaded', function () {
-    const resetButtons = document.querySelectorAll('.reset-btn')
-    const formInputs = document.querySelectorAll('.form__inputs')
+  const resetButtons = document.querySelectorAll('.reset-btn')
+  const formInputs = document.querySelectorAll('.form__inputs')
 
-    resetButtons.forEach(function (button) {
+  resetButtons.forEach(function (button) {
       button.style.display = 'none'
       button.addEventListener('click', function () {
         const input = this.parentNode.querySelector('input')
         input.value = ''; // Сбрасываем значение инпута
         button.style.display = 'none'
       })
-    })
+  })
 
-    formInputs.forEach(function (input) {
+  formInputs.forEach(function (input) {
       input.addEventListener('input', function (e) {
         const button = this.parentNode.querySelector('button')
         if (e.target.value) {
@@ -69,8 +71,42 @@ document.addEventListener('DOMContentLoaded', function () {
           button.style.display = 'none'
         }
       })
-    })
   })
+})
+
+
+const element = document.getElementById('phone');
+const flagSpan = document.querySelector('.custom-select__flag');
+const maskOptions = {
+  mask: '+{7}(000)000-00-00'
+};
+const mask = IMask(element, maskOptions);
+
+// Устанавливаем начальные значения для российского номера
+const initialMask = '+7(000)000-00-00';
+const initialFlag = '🇷🇺';
+
+mask.unmaskedValue = '7'; // Начальное значение кода страны
+mask.updateOptions({ mask: '+{7}(000)000-00-00' }); // Обновляем маску
+
+flagSpan.textContent = initialFlag;
+
+const options = document.querySelectorAll('.custom-select__options');
+
+options.forEach(option => {
+  option.addEventListener('click', function() {
+    const selectedMask = this.getAttribute('data-mask');
+    const selectedFlag = this.getAttribute('data-flag');
+    const selectedInitValue = this.getAttribute('data-value');
+    mask.updateOptions({ mask: selectedMask });
+    mask.unmaskedValue = selectedInitValue
+    flagSpan.textContent = selectedFlag;
+    element.focus();
+  });
+});
+
+
+
 
 
 // dropdown in form -- ends ------------------------------------------------------------------------------------------------------
@@ -97,6 +133,9 @@ accordionTops.forEach(function (accordionTop, index) {
 
 
 // accrodio in section FAQ -- ends------------------------------------------
+
+
+
 
 
 // SWIPER ------------------------------
@@ -133,6 +172,8 @@ swiperBtnNext.addEventListener('click', () => {
 
 // SWIPER -- ends ---------------------
 
+
+
 // VALIDATION FORM ------------------------
 const nameValue = document.getElementById('form__name');
 const phoneValue = document.getElementById('phone');
@@ -166,7 +207,6 @@ const validateForm = () => {
         nameError.innerHTML = 'Имя *';
         nameError.style.color = '';
     }
-
     // Проверка номера телефона
     if (!phoneValue.value.trim()) {
         phoneError.innerHTML = 'Пожалуйста, введите номер телефона';
@@ -177,8 +217,8 @@ const validateForm = () => {
         const phoneDigits = phoneValue.value.replace(/[^0-9]/g, '');
 
         // Проверка длины
-        if (phoneDigits.length > 13) {
-            phoneError.innerHTML = 'Номер телефона не должен превышать 12 цифр';
+        if (phoneDigits.length > 13 || phoneDigits.length < 11) {
+            phoneError.innerHTML = 'Введите корректный номер телефона';
             phoneError.style.color = 'red';
             checkError = false;
         } else if (!phoneDigits.length) {
@@ -194,8 +234,6 @@ const validateForm = () => {
             phoneError.style.color = '';
         }
     }
-
-
     return checkError;
 };
 
@@ -210,10 +248,16 @@ const sendInfo = async (form) => {
         })
         const resp = await data.text()
         if (resp === 'OK') {
-            return true
+          formSuccessfully.classList.add('active')
+          formSuccessfullyCloseBtn.addEventListener('click', () => {
+          formSuccessfully.classList.remove('active')
+          })
+          setTimeout(() => {
+            formSuccessfully.classList.remove('active')
+          }, 3000)
         }
     } catch (error) {
-        alert('Ошибка при отправке данных', error)
+        alert(`Ошибка при отправке данных, поробуйте ещё раз. ${error}`)
     }
 }
 
@@ -221,7 +265,7 @@ formBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     if (!validateForm()) {
-        return;
+        return
     }
 
     const formData = {
@@ -230,14 +274,5 @@ formBtn.addEventListener('click', (event) => {
         mail: emailValue.value || 'Не указано',
     };
     console.log(formData)
-
-    if (sendInfo(formData)) {
-      formSuccessfully.classList.add('active')
-      formSuccessfullyCloseBtn.addEventListener('click', () => {
-        formSuccessfully.classList.remove('active')
-      })
-      setTimeout(() => {
-        formSuccessfully.classList.remove('active')
-      }, 3000)
-    }
+    sendInfo(formData)
 });
